@@ -14,6 +14,10 @@ define mediawiki::new(
       package { 'mediawiki':
         ensure => latest,
       }
+      package { "mediawiki-extensions-openid":
+        ensure => latest,
+      }
+
 
       if ($targetdir) {
         file {'wikis':
