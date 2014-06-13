@@ -1,5 +1,6 @@
 define mediawiki::new(
   $ensure=present,
+  $targetdir='',
   $admin,
   $servername=$name,
   $serveralias=$name,
@@ -14,13 +15,20 @@ define mediawiki::new(
         ensure => latest,
       }
 
-      file { 'wikis':
-        ensure  => directory,
-        path    => '/var/lib/mediawiki/wikis',
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0755',
-        require => Package['mediawiki'];
+      if ($targetdir) {
+        file {'wikis':
+          ensure  => 'link',
+          name    => '/var/lib/mediawiki/wikis',
+          target  => $targetdir,
+          require => Package["mediawiki"];
+        }
+      } else {
+        file { "wikis":
+          ensure  => directory,
+          path    => "/var/lib/mediawiki/wikis",
+          mode    => 755,
+          require => Package["mediawiki"];
+        }
       }
 
       file { 'mywiki':
