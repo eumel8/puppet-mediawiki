@@ -38,8 +38,6 @@ define mediawiki::new(
       file { 'mywiki':
         ensure  => directory,
         path    => "/var/lib/mediawiki/wikis/${name}",
-        owner   => 'root',
-        group   => 'root',
         mode    => '0755',
         require => File['wikis'];
       }
