@@ -54,8 +54,6 @@ define mediawiki::new(
             mode    => '0700';
           "/var/lib/mediawiki/wikis/${name}/extensions":
             ensure  => directory,
-            owner   => 'root',
-            group   => 'root',
             require => File['mywiki'],
             mode    => '0755';
           "/var/lib/mediawiki/wikis/${name}/config/index.php":
