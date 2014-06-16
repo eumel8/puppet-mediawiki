@@ -8,6 +8,7 @@ Prerequisites
 
 puppet module for apache (i.e. https://github.com/martasd/puppetlabs-apache)
 puppet module for memcached (i.e. https://github.com/saz/puppet-memcached)
+MySQL database connection
 
 
 Usage
