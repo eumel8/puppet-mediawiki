@@ -29,11 +29,11 @@ define mediawiki::new(
             group   => 'www-data',
             require => File['wiki-{$name}'],
             notify  => File["/var/lib/mediawiki/wikis/${name}/config/index.php"],
-            mode    => '0700',
+            mode    => '0700';
           "/var/lib/mediawiki/wikis/${name}/extensions":
             ensure  => directory,
             require => File['wiki-{$name}'],
-            mode    => '0755',
+            mode    => '0755';
           "/var/lib/mediawiki/wikis/${name}/config/index.php":
             content => template('mediawiki/index.php.erb'),
             owner   => 'www-data',
@@ -45,67 +45,67 @@ define mediawiki::new(
         "/var/lib/mediawiki/wikis/${name}/api.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/api.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/img_auth.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/img_auth.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/includes":
           ensure  => link,
           target  => '/usr/share/mediawiki/includes',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/index.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/index.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/install-utils.inc":
           ensure  => link,
           target  => '/usr/share/mediawiki/install-utils.inc',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/languages":
           ensure  => link,
           target  => '/usr/share/mediawiki/languages',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/maintenance":
           ensure  => link,
           target  => '/usr/share/mediawiki/maintenance',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/opensearch_desc.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/opensearch_desc.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/profileinfo.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/profileinfo.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/redirect.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/redirect.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/redirect.phtml":
           ensure  => link,
           target  => '/usr/share/mediawiki/redirect.phtml',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/skins":
           ensure  => link,
           target  => '/usr/share/mediawiki/skins',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/StartProfiler.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/StartProfiler.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/Test.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/Test.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/thumb.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/thumb.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/trackback.php":
           ensure  => link,
           target  => '/usr/share/mediawiki/trackback.php',
-          require => File['wiki-{$name}'],
+          require => File['wiki-{$name}'];
         "/var/lib/mediawiki/wikis/${name}/wiki.phtml":
           ensure  => link,
           target  => '/usr/share/mediawiki/wiki.phtml',
