@@ -16,43 +16,43 @@ Usage
 
 Parameters available::
 
-  mediawiki::new { "Name":
-    ensure      => present, | enabled, | disabled, | absent,
-    admin       => 'foo@bar.com',
-    servername  => 'foo.bar.com',      #Default to $name
-    serveralias => 'foo',              #Default to $name
-    ip          => '127.0.0.1',        #IP for apache configuration. Default to *
-    port        => 80                  #Port for apache configuration. Default to 80
-  }
+    mediawiki::new { "Name":
+      ensure      => present, | enabled, | disabled, | absent,
+      admin       => 'foo@bar.com',
+      servername  => 'foo.bar.com',      #Default to $name
+      serveralias => 'foo',              #Default to $name
+      ip          => '127.0.0.1',        #IP for apache configuration. Default to *
+      port        => 80                  #Port for apache configuration. Default to 80
+    }
 
 
 Example
 -------
 
-node 'wiki.example.com' {
+    node 'wiki.example.com' {
 
-  class {'apache':}
-  class {'memcached':}
+      class {'apache':}
+      class {'memcached':}
 
-  mediawiki::new { "wiki1.example.com":
-    ensure      => present,
-    admin       => 'wikimaster@example.com',
-    servername  => 'wiki1.example.com',
-    serveralias => 'wiki1',
-    ip          => '192.168.1.2', 
-    targetdir   => '/data/wikis'
-  }
+      mediawiki::new { "wiki1.example.com":
+        ensure      => present,
+        admin       => 'wikimaster@example.com',
+        servername  => 'wiki1.example.com',
+        serveralias => 'wiki1',
+        ip          => '192.168.1.2', 
+        targetdir   => '/data/wikis'
+      }
 
-  mediawiki::new { "wiki2.example.com":
-    ensure      => present,
-    admin       => 'wikimaster@example.com',
-    servername  => 'wiki2.example.com',
-    serveralias => 'wiki2',
-    ip          => '192.168.1.2', 
-    targetdir   => '/data/wikis'
-  }
+      mediawiki::new { "wiki2.example.com":
+        ensure      => present,
+        admin       => 'wikimaster@example.com',
+        servername  => 'wiki2.example.com',
+        serveralias => 'wiki2',
+        ip          => '192.168.1.2', 
+        targetdir   => '/data/wikis'
+      }
 
-}
+    }
 
 
 Notes
