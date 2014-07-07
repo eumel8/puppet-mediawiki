@@ -120,7 +120,7 @@ define mediawiki::new(
 
       exec { 'enable-site':
         command => "/usr/sbin/a2ensite ${name}",
-        onlyif  => "/bin/readlink -e /etc/apache2/sites-available/${name}",
+        onlyif  => ["/bin/readlink -e /etc/apache2/sites-available/${name}","/usr/bin/test ! -f /etc/apache2/sites-enabled/${name}"],
         notify  => Exec['reload-apache2'],
       }
 
