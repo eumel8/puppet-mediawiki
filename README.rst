@@ -6,8 +6,10 @@ Puppet Module to create many wikis (on the same machine) using only one mediawik
 Prerequisites
 -------------
 
-puppet module for apache (i.e. https://github.com/martasd/puppetlabs-apache)
+puppet module for apache (i.e. https://github.com/puppetlabs/puppetlabs-apache)
+
 puppet module for memcached (i.e. https://github.com/saz/puppet-memcached)
+
 MySQL database connection
 
 
